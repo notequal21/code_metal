@@ -1,0 +1,40 @@
+// -------- imports --------
+@import "fonts";
+@import "components/_fonts";
+@import "components/_normalize.scss";
+@import "components/_mixins.scss";
+@import "components/_variables.scss";
+@import "components/_variables.scss";
+@import "components/_header.scss";
+@import "components/_footer.scss";
+@import "components/_ui.scss";
+@import "pages/index/_main.scss";
+
+// fonts --------- &display=swap || &subset=cyrillic-ext
+// throught plugin
+
+
+::selection {}
+
+body {
+  overflow: auto; // <--- delete this if not necessary
+
+  color: red;
+}
+
+.container {
+  max-width: 0px; // <--- container res +30px for padding
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 1 auto;
+}

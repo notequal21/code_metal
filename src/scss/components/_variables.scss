@@ -1,0 +1,14 @@
+$maxWidth: 0; // <---- layout width For adaptiv font
+
+$breakpoints: (
+  'xs': ('(max-width: 576px)'),
+  'sm': ('(max-width: 768px)'),
+  'md': ('(max-width: 992px)'),
+  'lg': ('(max-width: 1199px)'),
+);
+
+$mediaWidthLaptop: 1440px;
+$mediaWidthDesktop: 1024px;
+$mediaWidthLessDesktop: 1412px;
+$mediaWidthTablet: 768px;
+$mediaWidthMobile: 550px;
