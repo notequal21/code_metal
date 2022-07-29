@@ -1,7 +1,51 @@
 <header class="header">
+	<div class="header__sound">
+		<img src="./img/header/sound-default.svg" alt="">
+		<img src="./img/header/sound-hover.svg" alt="">
+		<img src="./img/header/sound-active.svg" alt="">
+		<img src="./img/header/sound-disable.svg" alt="">
+	</div>
 	<div class="container">
 		<div class="header-body">
+			<div class="header-body__logo">
+				<!-- <img src="./img/header/logo.svg" alt=""> -->
+				<img src="./img/header/logo.png" srcset="./img/header/logo.png 1x, ./img/header/logo@2x.png 2x" alt="">
+			</div>
+			<div class="header-menu">
+				<a href="#" class="header-menu__item">
+					Mint
+				</a>
+				<a href="#" class="header-menu__item">
+					Arena
+				</a>
+				<div class="header-menu__item dropdown">
+					More
+					<div class="dropdown-list">
+						<a href="#" class="dropdown-list__item">
+							long menu item #1
+						</a>
+						<a href="#" class="dropdown-list__item">
+							long menu item #2
+						</a>
+						<a href="#" class="dropdown-list__item">
+							long menu item #3
+						</a>
+					</div>
+				</div>
 
+				<a href="#" class="header-body__connect header-body__connect_mob">
+					Connect wallet
+				</a>
+			</div>
+			<a href="#" class="header-body__connect">
+				Connect wallet
+			</a>
+
+			<div class="header-body__burger">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
 		</div>
 	</div>
 </header>

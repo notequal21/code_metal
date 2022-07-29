@@ -1,6 +1,6 @@
 // -------- imports --------
+@import '../../node_modules/swiper/swiper.scss';
 @import "fonts";
-@import "components/_fonts";
 @import "components/_normalize.scss";
 @import "components/_mixins.scss";
 @import "components/_variables.scss";
@@ -9,6 +9,17 @@
 @import "components/_footer.scss";
 @import "components/_ui.scss";
 @import "pages/index/_main.scss";
+@import "pages/index/_description.scss";
+@import "pages/index/_advantages.scss";
+@import "pages/index/_partners.scss";
+@import "pages/index/_heroes.scss";
+@import "pages/index/_rarity.scss";
+@import "pages/index/_ecosystem.scss";
+@import "pages/index/_video.scss";
+@import "pages/index/_mint.scss";
+@import "pages/index/_roadmap.scss";
+@import "pages/index/_faq.scss";
+@import "pages/index/_halvening.scss";
 
 // fonts --------- &display=swap || &subset=cyrillic-ext
 // throught plugin
@@ -17,15 +28,21 @@
 ::selection {}
 
 body {
-  overflow: auto; // <--- delete this if not necessary
+  // overflow: auto; // <--- delete this if not necessary
+  overflow-x: hidden; // <--- delete this if not necessary
+  font-family: 'Halvar Breitschrift';
+  font-weight: 500;
+  background: #101010;
 
-  color: red;
+  &.lock {
+    overflow: hidden;
+  }
 }
 
 .container {
-  max-width: 0px; // <--- container res +30px for padding
+  max-width: 1200px; // <--- container res +30px for padding
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 .wrapper {
@@ -37,4 +54,27 @@ body {
 
 .content {
   flex: 1 1 auto;
+}
+
+#cursor__light {
+  position: absolute;
+  user-select: none;
+  pointer-events: none;
+  // z-index: 11000;
+  z-index: 1;
+
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width:992px) {
+    display: none;
+  }
 }

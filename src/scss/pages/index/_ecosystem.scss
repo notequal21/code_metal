@@ -1,0 +1,161 @@
+.ecosystem {
+  padding: 20px 0;
+  overflow: hidden;
+
+  .container {
+    position: relative;
+  }
+
+  &__img {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    transform: translateY(100%);
+
+    &:nth-child(1) {
+      top: -220px;
+      left: -100px;
+
+      @media (max-width:1360px) {
+        top: -100px;
+        left: -50px;
+
+        img {
+          width: 240px;
+        }
+      }
+
+      @media (max-width:992px) {
+        top: 0px;
+        left: -20px;
+
+        img {
+          width: 120px;
+        }
+      }
+    }
+
+
+    &:nth-child(2) {
+      top: 150px;
+      right: -200px;
+
+      @media (max-width:1360px) {
+        right: -50px;
+
+        img {
+          width: 200px;
+        }
+      }
+
+      @media (max-width:992px) {
+        top: 50%;
+        right: -50px;
+
+        img {
+          width: 110px;
+        }
+      }
+    }
+
+
+    &:nth-child(3) {
+      bottom: -200px;
+      left: -150px;
+
+      @media (max-width:1360px) {
+        left: -50px;
+
+        img {
+          width: 220px;
+        }
+      }
+
+      @media (max-width:992px) {
+        bottom: -100px;
+        left: -20px;
+
+        img {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 5;
+    font-family: 'Beth Ellen';
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 152%;
+    letter-spacing: 0.035em;
+    color: #74182A;
+    text-align: center;
+
+    @media (max-width:992px) {
+      font-size: 24px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    z-index: 5;
+    margin: 20px auto 0;
+    font-size: 54px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    max-width: 1020px;
+
+    @media (max-width:1360px) {
+      font-size: 46px;
+    }
+
+    @media (max-width:992px) {
+      font-size: 27px;
+      line-height: 130%;
+    }
+
+    p {
+      position: relative;
+      z-index: 1;
+      display: inline;
+      // background: linear-gradient(to right, #3f3f3f 50%, #fff 50%) 0 0 / 200% 100%;
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // -webkit-text-fill-color: transparent;
+      // box-decoration-break: slice;
+      // -webkit-box-decoration-break: slice;
+      color: #3f3f3f;
+    }
+
+
+    .ecosystem__text-item {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      left: 0;
+      color: #FFFFFF;
+    }
+
+    span {
+      img {
+        height: 48px;
+        transform: translate(0, 10px);
+
+        @media (max-width:1360px) {
+          height: 42px;
+          transform: translate(0, 8px);
+        }
+
+        @media (max-width:992px) {
+          height: 24px;
+          transform: translate(0, 4px);
+        }
+      }
+    }
+  }
+}

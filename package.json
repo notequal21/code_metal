@@ -44,5 +44,12 @@
     "webp-converter": "2.2.3",
     "webpack": "^5.72.1",
     "webpack-stream": "^7.0.0"
+  },
+  "dependencies": {
+    "apexcharts": "^3.35.4",
+    "chart.js": "^3.8.2",
+    "gsap": "^3.10.4",
+    "smooth-scrollbar": "^8.7.4",
+    "swiper": "^8.3.1"
   }
 }

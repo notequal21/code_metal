@@ -1,0 +1,207 @@
+.halvening {
+  padding: 60px 0 160px;
+  background-image: url(../img/halvening/bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  @media (max-width:992px) {
+    background-image: none;
+    padding: 50px 0 100px;
+  }
+
+  &__title {
+    font-size: 54px;
+    line-height: 130%;
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    @media (max-width:992px) {
+      font-size: 27px;
+      line-height: 130%;
+    }
+  }
+
+  &__subtitle {
+    margin: 20px auto 0;
+    font-family: 'Saira';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 152%;
+    text-align: center;
+    color: #969696;
+    max-width: 600px;
+
+    @media (max-width:992px) {
+      margin: 16px auto 0;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 140%;
+    }
+  }
+
+  &-body {
+    margin: 60px 0 0;
+    display: flex;
+
+    @media (max-width:992px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &-descr {
+    flex: 0 0 auto;
+    width: 360px;
+    padding: 60px 20px 0 35px;
+    background-color: #191919;
+    border: 1px solid #313131;
+    position: relative;
+
+    @media (max-width:992px) {
+      width: 100%;
+      max-width: 380px;
+      padding: 45px 20px 0 20px;
+    }
+
+    &::before {
+      content: url(../img/halvening/card-elem.svg);
+      position: absolute;
+      left: -1px;
+      top: -17px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      border-top: 1px solid #313131;
+      border-right: 1px solid #313131;
+    }
+
+    &__title {
+      font-family: 'Saira';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 152%;
+      color: #969696;
+
+      @media (max-width:992px) {
+        text-align: center;
+      }
+    }
+
+    &__item {
+      margin: 12px 0 0;
+      font-size: 40px;
+      line-height: 130%;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+
+      @media (max-width:992px) {
+        font-size: 27px;
+        line-height: 130%;
+        text-align: center;
+      }
+    }
+
+    &__coin {
+      display: flex;
+      justify-content: center;
+
+      position: relative;
+      width: 100%;
+      max-width: 300px;
+      padding: 0 0 100%;
+      margin: 0 auto;
+
+      overflow: hidden;
+
+      @media (max-width:992px) {
+        max-width: 240px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      img {
+        top: 0;
+        position: absolute;
+        // opacity: 0.2;
+        transform: translateY(100%);
+        transition: all .4s ease;
+      }
+
+      &.show {
+        img {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+
+  &-chart {
+    width: 100%;
+    margin: 0 0 0 40px;
+    background-color: #191919;
+    border: 1px solid #313131;
+
+    .apexcharts-tooltip {
+      border: none !important;
+      background: none !important;
+      box-shadow: none !important;
+      border-radius: unset !important;
+    }
+
+    &__tooltip {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      background: #101010;
+      border: 1px solid #313131;
+      border-radius: 8px;
+      padding: 12px 20px;
+
+      &-x {
+        font-family: 'Saira';
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 140%;
+        color: #FFFFFF;
+      }
+
+      &-y {
+        margin: 4px 0 0;
+        font-family: 'Saira';
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 152%;
+        color: #FFFFFF;
+      }
+    }
+
+    canvas {
+      width: 100%;
+      height: 100%;
+      max-width: 760px;
+      max-height: 456px;
+    }
+
+    @media (max-width:992px) {
+      width: 100%;
+      max-width: 380px;
+      margin: 20px 0 0;
+    }
+  }
+
+}

@@ -1,0 +1,130 @@
+.video {
+  padding: 120px 0;
+  background-image: url(../img/video/bg.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+  position: relative;
+  background-attachment: fixed;
+
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color: #101010, $alpha: 0.6);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: url(../img/video/light.png);
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  @media (max-width:992px) {
+    padding: 50px 0;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    font-size: 54px;
+    line-height: 130%;
+    text-align: center;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    @media (max-width:992px) {
+      font-size: 27px;
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    z-index: 1;
+    margin: 20px auto 0;
+    font-family: 'Saira';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 152%;
+    text-align: center;
+    color: #969696;
+    max-width: 420px;
+
+    @media (max-width:992px) {
+      margin: 16px auto 0;
+      font-weight: 300;
+      font-size: 14px;
+    }
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto 0;
+    max-width: 960px;
+
+    @media (max-width:992px) {
+      margin: 28px auto 0;
+    }
+
+    &__cover {
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__btn {
+      cursor: pointer;
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transition: all .3s ease;
+
+      &.disabled {
+        filter: grayscale(100%);
+      }
+
+      &:hover {
+        filter: grayscale(100%);
+      }
+
+      @media (max-width:992px) {
+        width: 60px;
+        height: 64px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}

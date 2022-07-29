@@ -1,7 +1,63 @@
-@font-face{
-	font-family: gemina;
+@font-face {
+	font-family: 'Halvar Breitschrift';
 	font-display: swap;
-	src: url("../fonts/gemina.woff2") format("woff2"), url("../fonts/gemina.woff") format("woff");
+	src: url("../fonts/HalvarBreit-Bd.woff2") format("woff2"), url("../fonts/HalvarBreit-Bd.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Halvar Breitschrift';
+	font-display: swap;
+	src: url("../fonts/HalvarBreit-Md.woff2") format("woff2"), url("../fonts/HalvarBreit-Md.woff") format("woff");
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'mgs4brush';
+	font-display: swap;
+	src: url("../fonts/MGS4Brush.woff2") format("woff2"), url("../fonts/MGS4Brush.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Saira';
+	font-display: swap;
+	src: url("../fonts/Saira-Light.woff2") format("woff2"), url("../fonts/Saira-Light.woff") format("woff");
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Beth Ellen';
+	font-display: swap;
+	src: url("../fonts/BethEllen-Regular.woff2") format("woff2"), url("../fonts/BethEllen-Regular.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Halvar Breitschrift';
+	font-display: swap;
+	src: url("../fonts/HalvarBreit-Rg.woff2") format("woff2"), url("../fonts/HalvarBreit-Rg.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Saira';
+	font-display: swap;
+	src: url("../fonts/Saira-SemiBold.woff2") format("woff2"), url("../fonts/Saira-SemiBold.woff") format("woff");
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Saira';
+	font-display: swap;
+	src: url("../fonts/Saira-Regular.woff2") format("woff2"), url("../fonts/Saira-Regular.woff") format("woff");
 	font-weight: 400;
 	font-style: normal;
 }
