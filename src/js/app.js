@@ -6,6 +6,8 @@ functions.apexChart()
 functions.upBtn()
 functions.soundBtn()
 functions.cursorLight()
+functions.counter()
+functions.uiDemo()
 
 // sliders
 functions.mainMobileSlider()

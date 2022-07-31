@@ -7,6 +7,7 @@
 @import "components/_variables.scss";
 @import "components/_header.scss";
 @import "components/_footer.scss";
+@import "components/_footer-mint.scss";
 @import "components/_ui.scss";
 @import "pages/index/_main.scss";
 @import "pages/index/_description.scss";
@@ -20,6 +21,7 @@
 @import "pages/index/_roadmap.scss";
 @import "pages/index/_faq.scss";
 @import "pages/index/_halvening.scss";
+@import "pages/mint/_main.scss";
 
 // fonts --------- &display=swap || &subset=cyrillic-ext
 // throught plugin

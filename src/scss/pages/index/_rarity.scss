@@ -285,10 +285,13 @@
 
             @media (max-height:755px) {
               left: 6.9%;
+              // bottom: 55.5%;
+              top: 195px;
             }
 
             @media (max-width:1100px) {
-              left: 3.5%;
+              // left: 3.5%;
+              left: 42px;
             }
           }
 
@@ -300,6 +303,7 @@
 
           &:nth-child(3) {
             bottom: 300px;
+            // bottom: 57%;
             // right: 42px;
             right: 4.5%;
             transform: rotate(-26deg);
@@ -309,11 +313,14 @@
             }
 
             @media (max-height:755px) {
+              // bottom: 55.5%;
+              top: 195px;
               right: 6.9%;
             }
 
             @media (max-width:1100px) {
-              right: 3.5%;
+              // right: 3.5%;
+              right: 42px;
             }
           }
         }

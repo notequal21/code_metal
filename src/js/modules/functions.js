@@ -980,3 +980,42 @@ export const cursorLight = () => {
   })
 
 }
+
+export const counter = () => {
+  if (document.querySelector('.mint-content__counter-value')) {
+    const counterValue = document.querySelector('.mint-content__counter-value')
+    const counterMinus = document.querySelector('.mint-content__counter-item_minus')
+    const counterPlus = document.querySelector('.mint-content__counter-item_plus')
+
+    counterMinus.addEventListener('click', () => {
+      +counterValue.innerHTML < 1 ? ''
+        : counterValue.innerHTML = +counterValue.innerHTML - 1
+    })
+    counterPlus.addEventListener('click', () => {
+      counterValue.innerHTML = +counterValue.innerHTML + 1
+    })
+  }
+}
+
+export const uiDemo = () => {
+  if (document.querySelector('.demo-ui-percent')) {
+    const demoProgress = document.querySelector('.mint-content__item-progress')
+    const demoProgressText = document.querySelector('.demo-ui-percent')
+    const demoProgressMinus = document.querySelector('.demo-ui-percent__minus')
+    const demoProgressPlus = document.querySelector('.demo-ui-percent__plus')
+
+    demoProgressMinus.addEventListener('click', () => {
+      const value = demoProgress.style.getPropertyValue('--mint-page-percent').split('%')[0]
+      if (value > 0) {
+        demoProgress.style.setProperty('--mint-page-percent', `${+value - 1}%`)
+        demoProgressText.innerHTML = `${value}%`
+      }
+      demoProgressText.innerHTML = `${value}%`
+    })
+    demoProgressPlus.addEventListener('click', () => {
+      const value = demoProgress.style.getPropertyValue('--mint-page-percent').split('%')[0]
+      demoProgress.style.setProperty('--mint-page-percent', `${+value + 1}%`)
+      demoProgressText.innerHTML = `${value}%`
+    })
+  }
+}
