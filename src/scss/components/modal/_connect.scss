@@ -1,0 +1,59 @@
+.connect {
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 140%;
+    text-align: center;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  &-body {
+    border: 1px solid #313131;
+    background-color: #171717;
+    position: relative;
+    padding: 24px;
+
+    width: calc(100% - 64px);
+    max-width: 360px;
+
+    &::before {
+      content: url(../img/mint-page/modal/card-elem01.svg);
+      position: absolute;
+      top: -20px;
+      left: -1px;
+    }
+  }
+
+  &-content {
+    margin: 24px 0 0;
+
+    &__item {
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      padding: 18px 20px;
+      background-color: #1E1E1E;
+
+      &:not(:first-child) {
+        margin: 12px 0 0;
+      }
+
+      &-name {
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 140%;
+        text-transform: uppercase;
+        color: #FFFFFF;
+      }
+
+      &-logo {}
+    }
+  }
+}

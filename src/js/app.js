@@ -1,13 +1,17 @@
 import * as functions from "./modules/functions.js";
 
 functions.burger()
+functions.connectWalletModal()
+functions.congratsModal()
+functions.confirmModal()
+functions.errorModal()
+functions.walletDisconnect()
 functions.spoiler()
 functions.apexChart()
 functions.upBtn()
 functions.soundBtn()
 functions.cursorLight()
 functions.counter()
-functions.uiDemo()
 
 // sliders
 functions.mainMobileSlider()

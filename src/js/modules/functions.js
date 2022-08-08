@@ -426,24 +426,25 @@ export const halveningScrollAnim = () => {
   // });
 
 
+  if (document.querySelector('.halvening')) {
+    ScrollTrigger.create({
 
-  ScrollTrigger.create({
-
-    trigger: "section.halvening",
-    // scroller: ".wrapper",
-    scrub: true,
-    pin: false,
-    // start: () => "top top",
-    start: () => `-${window.innerHeight * 0.1}`,
-    end: () => "1000",
-    // end: () => "+=" + ((images.length + 1) * window.innerHeight),
-    // end: () => "+=" + ((halveningImgs.length + 1) * window.innerHeight),
-    invalidateOnRefresh: true,
-    onEnter: self => {
-      const coin = document.querySelector('.halvening-descr__coin')
-      coin.classList.add('show')
-    },
-  });
+      trigger: "section.halvening",
+      // scroller: ".wrapper",
+      scrub: true,
+      pin: false,
+      // start: () => "top top",
+      start: () => `-${window.innerHeight * 0.1}`,
+      end: () => "1000",
+      // end: () => "+=" + ((images.length + 1) * window.innerHeight),
+      // end: () => "+=" + ((halveningImgs.length + 1) * window.innerHeight),
+      invalidateOnRefresh: true,
+      onEnter: self => {
+        const coin = document.querySelector('.halvening-descr__coin')
+        coin.classList.add('show')
+      },
+    });
+  }
 }
 
 export const heroesScrollAnim = () => {
@@ -662,16 +663,46 @@ export const rarityScrollAnim = () => {
 
 export const ecosystemScrollAnim = () => {
 
+  if (document.querySelector('.ecosystem')) {
+    gsap.set(".ecosystem__img", { zIndex: (i, target, targets) => targets.length - i });
 
-  gsap.set(".ecosystem__img", { zIndex: (i, target, targets) => targets.length - i });
+    let ecosysImages = gsap.utils.toArray('.ecosystem__img');
+    let ecosysText = gsap.utils.toArray('.ecosystem__text-item');
 
-  let ecosysImages = gsap.utils.toArray('.ecosystem__img');
-  let ecosysText = gsap.utils.toArray('.ecosystem__text-item');
+    ecosysImages.forEach((image, i) => {
 
-  ecosysImages.forEach((image, i) => {
+      let ecosysTl = gsap.timeline({
 
-    let ecosysTl = gsap.timeline({
+        scrollTrigger: {
+          ease: 'power3',
+          trigger: "section.ecosystem",
+          // start: () => "top -" + (window.innerHeight * (i)),
+          // start: () => "top -" + (window.innerHeight),
+          start: () => "top",
+          // start: () => "top top",
+          // end: () => "+=" + window.innerHeight,
+          end: () => "+=2000",
+          scrub: true,
+          toggleActions: "play none reverse none",
+          invalidateOnRefresh: true,
+        }
 
+      })
+
+      ecosysTl
+        // .to(image, { duration: 0.33, opacity: 1, y: "50%" })
+        // .to(image, { duration: 0.33, opacity: 0, y: "20%", scale: "0.5" }, 0.66)
+        // .to(image, { duration: 0.33, opacity: 1, y: "-100%" })
+        .to(image, { duration: 0.33, y: `-${50 * (i + 1)}%` })
+        // .to(image, { duration: 0.33, opacity: 0, y: "100%" }, 0.66)
+        ;
+
+    });
+
+
+
+
+    let ecosysTextTl = gsap.timeline({
       scrollTrigger: {
         ease: 'power3',
         trigger: "section.ecosystem",
@@ -685,84 +716,55 @@ export const ecosystemScrollAnim = () => {
         toggleActions: "play none reverse none",
         invalidateOnRefresh: true,
       }
-
     })
 
-    ecosysTl
-      // .to(image, { duration: 0.33, opacity: 1, y: "50%" })
-      // .to(image, { duration: 0.33, opacity: 0, y: "20%", scale: "0.5" }, 0.66)
-      // .to(image, { duration: 0.33, opacity: 1, y: "-100%" })
-      .to(image, { duration: 0.33, y: `-${50 * (i + 1)}%` })
-      // .to(image, { duration: 0.33, opacity: 0, y: "100%" }, 0.66)
-      ;
-
-  });
+    ecosysTextTl
+      .to(ecosysText, {
+        duration: 0.33, text: 'Our 4999 algorithmically generated Heroes <span><img src="./img/icons/text-ico05.svg" alt=""></span> are no ordinary NFTs. They are simply <span><img src="./img/icons/text-ico07.svg" alt=""></span> the beginning of a much larger ecosystem. Each hero is unique both <span><img src="./img/icons/text-ico02.svg" alt=""></span> in their looks and their Combat Stats. <span><img src="./img/icons/text-ico06.svg" alt=""></span> ALL 4999 Heroes generate $METAL the fuel that is burned to run the Code <span><img src="./img/icons/text-ico01.svg" alt=""></span> Metal ecosystem.'
+      });
 
 
+    // gsap.to(ecosysText, {
+    //   duration: 0.33, text: "Our 4999 algorithmically generated Heroes are no ordinary NFTs.They are simply the beginning of a much larger ecosystem. Each hero is unique both in their looks and their Combat Stats. ALL 4999 Heroes generate $METAL the fuel that is burned to run the Code Metal ecosystem."
+    // });
 
 
-  let ecosysTextTl = gsap.timeline({
-    scrollTrigger: {
-      ease: 'power3',
+
+    ScrollTrigger.create({
+
       trigger: "section.ecosystem",
-      // start: () => "top -" + (window.innerHeight * (i)),
-      // start: () => "top -" + (window.innerHeight),
-      start: () => "top",
-      // start: () => "top top",
-      // end: () => "+=" + window.innerHeight,
-      end: () => "+=2000",
       scrub: true,
-      toggleActions: "play none reverse none",
+      pin: true,
+      start: () => "top top",
+      end: () => "+=2000",
       invalidateOnRefresh: true,
-    }
-  })
-
-  ecosysTextTl
-    .to(ecosysText, {
-      duration: 0.33, text: 'Our 4999 algorithmically generated Heroes <span><img src="./img/icons/text-ico05.svg" alt=""></span> are no ordinary NFTs. They are simply <span><img src="./img/icons/text-ico07.svg" alt=""></span> the beginning of a much larger ecosystem. Each hero is unique both <span><img src="./img/icons/text-ico02.svg" alt=""></span> in their looks and their Combat Stats. <span><img src="./img/icons/text-ico06.svg" alt=""></span> ALL 4999 Heroes generate $METAL the fuel that is burned to run the Code <span><img src="./img/icons/text-ico01.svg" alt=""></span> Metal ecosystem.'
+      onUpdate: self => {
+        const text = document.querySelector('.ecosystem__text p')
+        text.style.backgroundPosition = `${-self.progress * 100}% 0`;
+      },
     });
 
 
-  // gsap.to(ecosysText, {
-  //   duration: 0.33, text: "Our 4999 algorithmically generated Heroes are no ordinary NFTs.They are simply the beginning of a much larger ecosystem. Each hero is unique both in their looks and their Combat Stats. ALL 4999 Heroes generate $METAL the fuel that is burned to run the Code Metal ecosystem."
-  // });
+    let proxy = { skew: 0 },
+      skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
+      clamp = gsap.utils.clamp(-4, 4); // don't let the skew go beyond 20 degrees. 
 
-
-
-  ScrollTrigger.create({
-
-    trigger: "section.ecosystem",
-    scrub: true,
-    pin: true,
-    start: () => "top top",
-    end: () => "+=2000",
-    invalidateOnRefresh: true,
-    onUpdate: self => {
-      const text = document.querySelector('.ecosystem__text p')
-      text.style.backgroundPosition = `${-self.progress * 100}% 0`;
-    },
-  });
-
-
-  let proxy = { skew: 0 },
-    skewSetter = gsap.quickSetter(".skewElem", "skewY", "deg"), // fast
-    clamp = gsap.utils.clamp(-4, 4); // don't let the skew go beyond 20 degrees. 
-
-  ScrollTrigger.create({
-    trigger: "section.ecosystem",
-    start: () => "top top",
-    onUpdate: (self) => {
-      let skew = clamp(self.getVelocity() / -300);
-      // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
-      if (Math.abs(skew) > Math.abs(proxy.skew)) {
-        proxy.skew = skew;
-        gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
+    ScrollTrigger.create({
+      trigger: "section.ecosystem",
+      start: () => "top top",
+      onUpdate: (self) => {
+        let skew = clamp(self.getVelocity() / -300);
+        // only do something if the skew is MORE severe. Remember, we're always tweening back to 0, so if the user slows their scrolling quickly, it's more natural to just let the tween handle that smoothly rather than jumping to the smaller skew.
+        if (Math.abs(skew) > Math.abs(proxy.skew)) {
+          proxy.skew = skew;
+          gsap.to(proxy, { skew: 0, duration: 0.8, ease: "power3", overwrite: true, onUpdate: () => skewSetter(proxy.skew) });
+        }
       }
-    }
-  });
+    });
 
-  // make the right edge "stick" to the scroll bar. force3D: true improves performance
-  gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
+    // make the right edge "stick" to the scroll bar. force3D: true improves performance
+    gsap.set(".skewElem", { transformOrigin: "right center", force3D: true });
+  }
 }
 
 export const chart = () => {
@@ -935,50 +937,51 @@ export const soundBtn = () => {
 }
 
 export const cursorLight = () => {
-  const body = document.querySelector('body')
+  if (document.getElementById('cursor__light')) {
+    const body = document.querySelector('body')
 
-  body.addEventListener('mousemove', e => {
+    body.addEventListener('mousemove', e => {
 
-    mouseCoords(e)
+      mouseCoords(e)
 
-    cursor.classList.remove('hidden')
+      cursor.classList.remove('hidden')
 
-  })
+    })
 
-  const cursor = document.getElementById('cursor__light')
+    const cursor = document.getElementById('cursor__light')
 
-  let mouseX = 0, mouseY = 0, posX = 0, posY = 0
+    let mouseX = 0, mouseY = 0, posX = 0, posY = 0
 
-  function mouseCoords(e) {
+    function mouseCoords(e) {
 
-    mouseX = e.pageX
-    mouseY = e.pageY
+      mouseX = e.pageX
+      mouseY = e.pageY
 
-  }
-
-  gsap.to({}, .01, {
-
-    repeat: -1,
-
-    onRepeat: () => {
-
-      posX += (mouseX - posX) / 5
-      posY += (mouseY - posY) / 5
-
-      gsap.set(cursor, {
-        css: {
-          left: mouseX,
-          top: mouseY
-        }
-      })
     }
 
-  })
+    gsap.to({}, .01, {
 
-  body.addEventListener('mouseout', () => {
-    cursor.classList.add('hidden')
-  })
+      repeat: -1,
 
+      onRepeat: () => {
+
+        posX += (mouseX - posX) / 5
+        posY += (mouseY - posY) / 5
+
+        gsap.set(cursor, {
+          css: {
+            left: mouseX,
+            top: mouseY
+          }
+        })
+      }
+
+    })
+
+    body.addEventListener('mouseout', () => {
+      cursor.classList.add('hidden')
+    })
+  }
 }
 
 export const counter = () => {
@@ -1016,6 +1019,221 @@ export const uiDemo = () => {
       const value = demoProgress.style.getPropertyValue('--mint-page-percent').split('%')[0]
       demoProgress.style.setProperty('--mint-page-percent', `${+value + 1}%`)
       demoProgressText.innerHTML = `${value}%`
+    })
+  }
+}
+
+
+export const connectWalletModal = () => {
+  if (document.querySelectorAll('.header-body__connect')) {
+    const openBtn = document.querySelectorAll('.header-body__connect')
+    const modal = document.querySelector('.connect')
+    const body = document.querySelector('body')
+    const content = document.querySelectorAll('.container')
+
+    let toggleModal = (e) => {
+      e.preventDefault()
+
+      const menu = document.querySelector('.header-menu')
+      menu.classList.contains('active') ?
+        menu.classList.remove('active') : ''
+      const openBtnBurger = document.querySelector('.header-body__burger')
+      openBtnBurger.classList.contains('active') ?
+        openBtnBurger.classList.remove('active') : ''
+
+      let div = document.createElement('div');
+      div.style.overflowY = 'scroll';
+      div.style.width = '50px';
+      div.style.height = '50px';
+      document.body.append(div);
+      let scrollWidth = div.offsetWidth - div.clientWidth;
+
+      div.remove();
+
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active')
+        body.classList.remove('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `1200px`
+            item.style.padding = ` 0 20px`
+          })
+        }
+      } else {
+        modal.classList.add('active')
+        body.classList.add('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `${1200 + scrollWidth}px`
+            item.style.padding = ` 0 ${scrollWidth + 20}px 0 20px`
+          })
+        }
+      }
+    }
+
+    openBtn.forEach((item) => {
+      item.addEventListener('click', toggleModal)
+    })
+  }
+}
+
+export const congratsModal = () => {
+  if (document.querySelector('.confirm__btn')) {
+    const openBtn = document.querySelectorAll('.confirm__btn')
+    const closeBtn = document.querySelector('.congrats-body__btn')
+    const modal = document.querySelector('.congrats')
+    const body = document.querySelector('body')
+    const content = document.querySelectorAll('.container')
+
+    let toggleModal = (e) => {
+      e.preventDefault()
+
+      const modalConfirm = document.querySelector('.confirm')
+      modalConfirm.classList.contains('active') ?
+        modalConfirm.classList.remove('active') : ''
+
+      let div = document.createElement('div');
+      div.style.overflowY = 'scroll';
+      div.style.width = '50px';
+      div.style.height = '50px';
+      document.body.append(div);
+      let scrollWidth = div.offsetWidth - div.clientWidth;
+
+      div.remove();
+
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active')
+        body.classList.remove('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `1200px`
+            item.style.padding = ` 0 20px`
+          })
+        }
+      } else {
+        modal.classList.add('active')
+        body.classList.add('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `${1200 + scrollWidth}px`
+            item.style.padding = ` 0 ${scrollWidth + 20}px 0 20px`
+          })
+        }
+      }
+    }
+
+    openBtn.forEach((item) => {
+      item.addEventListener('click', toggleModal)
+    })
+    closeBtn.addEventListener('click', toggleModal)
+  }
+}
+
+export const confirmModal = () => {
+  if (document.querySelector('.confirm')) {
+    const openBtn = document.querySelectorAll('.mint-content__item_btn')
+    const closeBtn = document.querySelector('.confirm__cancel')
+    const modal = document.querySelector('.confirm')
+    const body = document.querySelector('body')
+    const content = document.querySelectorAll('.container')
+
+    let toggleModal = (e) => {
+      e.preventDefault()
+
+      let div = document.createElement('div');
+      div.style.overflowY = 'scroll';
+      div.style.width = '50px';
+      div.style.height = '50px';
+      document.body.append(div);
+      let scrollWidth = div.offsetWidth - div.clientWidth;
+
+      div.remove();
+
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active')
+        body.classList.remove('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `1200px`
+            item.style.padding = ` 0 20px`
+          })
+        }
+      } else {
+        modal.classList.add('active')
+        body.classList.add('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `${1200 + scrollWidth}px`
+            item.style.padding = ` 0 ${scrollWidth + 20}px 0 20px`
+          })
+        }
+      }
+    }
+
+    openBtn.forEach((item) => {
+      item.addEventListener('click', toggleModal)
+    })
+    closeBtn.addEventListener('click', toggleModal)
+  }
+}
+
+export const errorModal = () => {
+  if (document.querySelector('.error-modal')) {
+    const openBtn = document.querySelectorAll('.mint-content__item_btn')
+    const closeBtn = document.querySelector('.error-modal__btn')
+    const modal = document.querySelector('.error-modal')
+    const body = document.querySelector('body')
+    const content = document.querySelectorAll('.container')
+
+    let toggleModal = (e) => {
+      e.preventDefault()
+
+      let div = document.createElement('div');
+      div.style.overflowY = 'scroll';
+      div.style.width = '50px';
+      div.style.height = '50px';
+      document.body.append(div);
+      let scrollWidth = div.offsetWidth - div.clientWidth;
+
+      div.remove();
+
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active')
+        body.classList.remove('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `1200px`
+            item.style.padding = ` 0 20px`
+          })
+        }
+      } else {
+        modal.classList.add('active')
+        body.classList.add('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `${1200 + scrollWidth}px`
+            item.style.padding = ` 0 ${scrollWidth + 20}px 0 20px`
+          })
+        }
+      }
+    }
+
+    openBtn.forEach((item) => {
+      item.addEventListener('click', toggleModal)
+    })
+    closeBtn.addEventListener('click', toggleModal)
+  }
+}
+
+export const walletDisconnect = () => {
+  if (document.querySelector('.header-wallet__item')) {
+    const walletDisconnectBtnOpen = document.querySelector('.header-wallet__item')
+    const walletDisconnectBtnExit = document.querySelector('.header-wallet__disconnect')
+
+    walletDisconnectBtnOpen.addEventListener('click', () => {
+      walletDisconnectBtnExit.classList.contains('active') ?
+        walletDisconnectBtnExit.classList.remove('active') :
+        walletDisconnectBtnExit.classList.add('active')
     })
   }
 }

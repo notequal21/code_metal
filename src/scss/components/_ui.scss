@@ -1,0 +1,60 @@
+.btn {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  color: #101010;
+  background: #FFFFFF;
+  border: 1px solid #FFFFFF;
+  transition: all .3s ease;
+
+  &:hover {
+    background: transparent;
+    color: #FFFFFF;
+  }
+
+  &.disable {
+    background: #313131;
+    border: 1px solid #313131;
+    color: #969696;
+
+    &:hover {
+      background: #313131;
+      border: 1px solid #313131;
+      color: #969696;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all .3s ease;
+
+  &__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(16, 16, 16, 0.9);
+  }
+}

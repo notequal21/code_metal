@@ -1,0 +1,124 @@
+.congrats {
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &-body {
+    height: calc(100% - 74px);
+    max-height: 715px;
+    position: relative;
+    border: 1px solid #313131;
+    background-color: #171717;
+    padding: 24px;
+
+    width: calc(100% - 64px);
+    max-width: 360px;
+
+    &::before {
+      content: url(../img/mint-page/modal/card-elem01.svg);
+      position: absolute;
+      top: -20.5px;
+      left: -1px;
+    }
+
+    &_one {
+      height: auto;
+
+      .congrats-content {
+        overflow-y: hidden;
+        padding: 20px 0 0 0;
+        max-height: unset;
+      }
+    }
+
+    &__title {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 140%;
+      text-align: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+    }
+
+    &__subtitle {
+      margin: 8px 0 0;
+      font-family: 'Saira';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 152%;
+      text-align: center;
+      color: #969696;
+    }
+
+    &__btn {
+      margin: 24px 0 0;
+      width: 100%;
+      height: 60px;
+    }
+  }
+
+  &-content {
+    margin: 24px 0 0;
+    padding: 20px 24px 0 0;
+    overflow-y: auto;
+    max-height: calc(100% - 172px);
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #74182A;
+    }
+
+    &__item {
+      position: relative;
+
+      &:not(:first-child) {
+        margin: 34px 0 0;
+      }
+
+      position: relative;
+      border: 1px solid #313131;
+      background-color: #1E1E1E;
+
+      &::before {
+        content: url(../img/mint-page/modal/card-elem02.svg);
+        position: absolute;
+        top: -19.6px;
+        left: -1px;
+      }
+    }
+
+    &__item-name {
+      position: absolute;
+      top: -5px;
+      left: 15px;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 165%;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      border: 1px solid #313131;
+      background-color: #252525;
+      padding: 3px 12px;
+    }
+
+    &__item-img {
+      width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

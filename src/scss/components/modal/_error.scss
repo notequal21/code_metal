@@ -1,0 +1,13 @@
+.error-modal {
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+  }
+
+  &__btn {
+    margin: 24px 0 0;
+    width: 100%;
+    height: 60px;
+  }
+}

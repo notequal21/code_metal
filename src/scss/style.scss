@@ -22,6 +22,10 @@
 @import "pages/index/_faq.scss";
 @import "pages/index/_halvening.scss";
 @import "pages/mint/_main.scss";
+@import "components/modal/_congrats.scss";
+@import "components/modal/_connect.scss";
+@import "components/modal/_confirm.scss";
+@import "components/modal/_error.scss";
 
 // fonts --------- &display=swap || &subset=cyrillic-ext
 // throught plugin
@@ -78,5 +82,35 @@ body {
 
   @media (max-width:992px) {
     display: none;
+  }
+}
+
+
+
+.sitemap {
+  width: 100%;
+  min-height: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  li {
+    flex: 1 1 100%;
+
+    &:not(:first-child) {
+      margin: 30px 0 0;
+    }
+
+    a {
+      font-size: 50px;
+      color: #fff;
+      transition: all .3s ease;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
   }
 }
