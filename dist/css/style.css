@@ -3490,6 +3490,120 @@ input {
   height: 60px;
 }
 
+.notification {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.notification-body {
+  position: absolute;
+  left: 20px;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 20px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.notification__item {
+  --notifiProgress: 0%;
+  flex: 1 1 100%;
+  background: #18743D;
+  -webkit-backdrop-filter: blur(108px);
+          backdrop-filter: blur(108px);
+  position: relative;
+}
+
+.notification__item:not(:first-child) {
+  margin: 20px 0 0;
+}
+
+.notification__item_success {
+  background: #18743D;
+}
+
+.notification__item_success .notification__item-progress::before {
+  background: #046029;
+}
+
+.notification__item_info {
+  background: #A8612E;
+}
+
+.notification__item_info .notification__item-progress::before {
+  background: #944D1A;
+}
+
+.notification__item_err {
+  background: #74182A;
+}
+
+.notification__item_err .notification__item-progress::before {
+  background: #600416;
+}
+
+.notification__item-close {
+  cursor: pointer;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.notification__item-content {
+  padding: 16px 16px 0;
+}
+
+.notification__item-title {
+  padding: 0 40px 0 0;
+  font-family: "Saira";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FFFFFF;
+}
+
+.notification__item-desc {
+  margin: 8px 0 0;
+  font-family: "Saira";
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 290px;
+}
+
+.notification__item-progress {
+  margin: 16px 0 0;
+  height: 4px;
+  position: relative;
+}
+
+.notification__item-progress::before,
+.notification__item-progress::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+
+.notification__item-progress::before {
+  z-index: 0;
+  width: 100%;
+  background: #046029;
+}
+
+.notification__item-progress::after {
+  width: var(--notifiProgress);
+  z-index: 1;
+  background: #FFFFFF;
+}
+
 body {
   overflow-x: hidden;
   font-family: "Halvar Breitschrift";
@@ -4489,6 +4603,16 @@ body.lock {
   .partners-slider .swiper-slide img {
     width: 120px;
     height: 60px;
+  }
+
+  .notification-body {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 545px) {
+  .notification-body {
+    max-width: unset;
   }
 }
 
