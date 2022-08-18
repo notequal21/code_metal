@@ -3490,6 +3490,218 @@ input {
   height: 60px;
 }
 
+.choose.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.choose-body {
+  position: relative;
+  border: 1px solid #313131;
+  background-color: #171717;
+  padding: 24px 12px 20px;
+  width: calc(100% - 64px);
+  max-width: 554px;
+}
+
+.choose-body::before {
+  content: url(../img/mint-page/modal/card-elem01.svg);
+  position: absolute;
+  top: -20px;
+  left: -1px;
+}
+
+.choose-body__items {
+  margin: 30px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.choose-body__item {
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 0 0 1px;
+  transition: all 0.3s ease;
+}
+
+.choose-body__item::after {
+  content: "";
+  display: block;
+  width: calc(100% - 40px);
+  position: absolute;
+  bottom: -1px;
+  left: 20px;
+  height: 1px;
+  background-color: #313131;
+}
+
+.choose-body__item:hover {
+  background: #313131;
+}
+
+.choose-body__item.active {
+  background: #313131;
+}
+
+.choose-body__item .wallet__id {
+  font-family: "Saira";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 152%;
+  color: #969696;
+}
+
+.choose-body__item .wallet__id_mob {
+  display: none;
+}
+
+.choose-body__item .wallet__value {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin: 0 0 0 30px;
+}
+
+.choose-body__pages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 32px auto 0;
+  width: calc(100% - 40px);
+}
+
+.choose-body__pages_mob {
+  display: none;
+}
+
+.choose-body__pages-prev {
+  width: 110px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #313131;
+  -webkit-backdrop-filter: blur(55px);
+          backdrop-filter: blur(55px);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  margin: 0 auto 0 0;
+}
+
+.choose-body__pages-prev:hover {
+  background: #FFFFFF;
+  color: #101010;
+}
+
+.choose-body__pages-content {
+  display: flex;
+}
+
+.choose-body__pages-item {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #313131;
+  -webkit-backdrop-filter: blur(55px);
+          backdrop-filter: blur(55px);
+  transition: all 0.3s ease;
+}
+
+.choose-body__pages-item:hover {
+  background: #313131;
+}
+
+.choose-body__pages-item:not(:first-child) {
+  margin: 0 0 0 8px;
+}
+
+.choose-body__pages-item.active {
+  background: #313131;
+}
+
+.choose-body__pages-next {
+  width: 110px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #313131;
+  -webkit-backdrop-filter: blur(55px);
+          backdrop-filter: blur(55px);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 140%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  margin: 0 0 0 auto;
+}
+
+.choose-body__pages-next:hover {
+  background: #FFFFFF;
+  color: #101010;
+}
+
+.choose-body__cancel {
+  cursor: pointer;
+  margin: 20px auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 130%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  color: #74182A;
+}
+
+.choose__title {
+  font-family: "Halvar Breitschrift";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-align: center;
+}
+
 .notification {
   position: fixed;
   z-index: 10;
@@ -4603,6 +4815,37 @@ body.lock {
   .partners-slider .swiper-slide img {
     width: 120px;
     height: 60px;
+  }
+
+  .choose-body__item .wallet__id {
+    display: none;
+  }
+
+  .choose-body__item .wallet__id_mob {
+    display: block;
+  }
+
+  .choose-body__pages {
+    display: none;
+  }
+
+  .choose-body__pages_mob {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .choose-body__pages-prev {
+    width: 40px;
+    margin: 0;
+  }
+
+  .choose-body__pages-item:not(:first-child) {
+    margin: 0;
+  }
+
+  .choose-body__pages-next {
+    width: 40px;
+    margin: 0;
   }
 
   .notification-body {

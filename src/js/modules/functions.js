@@ -192,20 +192,21 @@ export const tabs = () => {
 }
 
 export const upBtn = () => {
+  if (document.querySelector('#toTop')) {
+    document.addEventListener('DOMContentLoaded', function () {
+      let btn = document.querySelector('#toTop');
 
-  document.addEventListener('DOMContentLoaded', function () {
-    let btn = document.querySelector('#toTop');
+      // При клике прокручиываем на самый верх
+      btn.onclick = function (click) {
+        click.preventDefault();
 
-    // При клике прокручиываем на самый верх
-    btn.onclick = function (click) {
-      click.preventDefault();
-
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-  });
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }
 }
 
 export const spoiler = () => {
@@ -831,96 +832,98 @@ export const chart = () => {
 }
 
 export const apexChart = () => {
-  var options = {
-    chart: {
-      type: 'area',
-      height: 440,
-      zoom: {
+  if (document.querySelector("#chart")) {
+    var options = {
+      chart: {
+        type: 'area',
+        height: 440,
+        zoom: {
+          enabled: false
+        },
+        toolbar: {
+          show: false
+        },
+      },
+      series: [{
+        name: 'METAL',
+        data: [1250, 800, 600, 350, 125, 50, 25, 0],
+      }],
+      xaxis: {
+        type: 'numeric',
+        min: 1,
+        max: 7,
+        crosshairs: false,
+        tooltip: {
+          enabled: false,
+        },
+        axisBorder: {
+          show: true,
+          color: '#343434',
+          height: 1,
+          width: '100%',
+          offsetX: 0,
+          offsetY: 0
+        },
+        axisTicks: {
+          show: false,
+          borderType: 'solid',
+          color: '#78909C',
+          height: 6,
+          offsetX: 0,
+          offsetY: 0
+        },
+      },
+      yaxis: {
+        max: 1250,
+      },
+      dataLabels: {
         enabled: false
       },
-      toolbar: {
-        show: false
+      stroke: {
+        curve: 'straight',
+        lineCap: 'but',
       },
-    },
-    series: [{
-      name: 'METAL',
-      data: [1250, 800, 600, 350, 125, 50, 25, 0],
-    }],
-    xaxis: {
-      type: 'numeric',
-      min: 1,
-      max: 7,
-      crosshairs: false,
-      tooltip: {
-        enabled: false,
+      fill: {
+        colors: ['#6A1828'],
+        type: 'gradient',
+        gradient: {
+          shade: 'dark',
+          type: "vertical",
+          shadeIntensity: 0.5,
+          inverseColors: true,
+          opacityFrom: 1,
+          opacityTo: 0.2,
+          stops: [0, 100],
+        }
       },
-      axisBorder: {
+      theme: {
+        monochrome: {
+          enabled: true,
+          color: '#6A1828',
+        }
+      },
+      grid: {
         show: true,
-        color: '#343434',
-        height: 1,
-        width: '100%',
-        offsetX: 0,
-        offsetY: 0
+        borderColor: 'rgba(255, 255, 255, 0.05)',
+        position: 'back',
       },
-      axisTicks: {
-        show: false,
-        borderType: 'solid',
-        color: '#78909C',
-        height: 6,
-        offsetX: 0,
-        offsetY: 0
-      },
-    },
-    yaxis: {
-      max: 1250,
-    },
-    dataLabels: {
-      enabled: false
-    },
-    stroke: {
-      curve: 'straight',
-      lineCap: 'but',
-    },
-    fill: {
-      colors: ['#6A1828'],
-      type: 'gradient',
-      gradient: {
-        shade: 'dark',
-        type: "vertical",
-        shadeIntensity: 0.5,
-        inverseColors: true,
-        opacityFrom: 1,
-        opacityTo: 0.2,
-        stops: [0, 100],
-      }
-    },
-    theme: {
-      monochrome: {
+      tooltip: {
         enabled: true,
-        color: '#6A1828',
-      }
-    },
-    grid: {
-      show: true,
-      borderColor: 'rgba(255, 255, 255, 0.05)',
-      position: 'back',
-    },
-    tooltip: {
-      enabled: true,
-      custom: function ({ series, seriesIndex, dataPointIndex, w }) {
-        return `
+        custom: function ({ series, seriesIndex, dataPointIndex, w }) {
+          return `
         <div class="halvening-chart__tooltip">  
         <span class="halvening-chart__tooltip-y">METAL - ${series[seriesIndex][dataPointIndex]}</span>
         <span class="halvening-chart__tooltip-x">(i) -${Math.round(w.globals.labels[dataPointIndex])}%</span>
         </div>
         `
+        }
       }
     }
+
+    var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+    chart.render();
   }
-
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
-
-  chart.render();
 }
 
 export const soundBtn = () => {
@@ -1227,13 +1230,71 @@ export const errorModal = () => {
 
 export const walletDisconnect = () => {
   if (document.querySelector('.header-wallet__item')) {
-    const walletDisconnectBtnOpen = document.querySelector('.header-wallet__item')
-    const walletDisconnectBtnExit = document.querySelector('.header-wallet__disconnect')
+    const walletDisconnectBtnOpen = document.querySelectorAll('.header-wallet__item')
+    const walletDisconnectBtnExit = document.querySelectorAll('.header-wallet__disconnect')
 
-    walletDisconnectBtnOpen.addEventListener('click', () => {
-      walletDisconnectBtnExit.classList.contains('active') ?
-        walletDisconnectBtnExit.classList.remove('active') :
-        walletDisconnectBtnExit.classList.add('active')
+    walletDisconnectBtnOpen.forEach(item => {
+      item.addEventListener('click', () => {
+        if (walletDisconnectBtnExit[0].classList.contains('active')) {
+          walletDisconnectBtnExit.forEach(item => {
+            item.classList.remove('active')
+          })
+        } else {
+          walletDisconnectBtnExit.forEach(item => {
+            item.classList.add('active')
+          })
+        }
+      })
     })
+  }
+}
+
+export const chooseModal = () => {
+  if (document.querySelector('.choose')) {
+    const openBtn = document.querySelectorAll('.ledger-choose-btn')
+    const closeBtn = document.querySelector('.choose-body__cancel')
+    const modal = document.querySelector('.choose')
+    const body = document.querySelector('body')
+    const content = document.querySelectorAll('.container')
+
+    let toggleModal = (e) => {
+      e.preventDefault()
+
+      let div = document.createElement('div');
+      div.style.overflowY = 'scroll';
+      div.style.width = '50px';
+      div.style.height = '50px';
+      document.body.append(div);
+      let scrollWidth = div.offsetWidth - div.clientWidth;
+
+      div.remove();
+
+      if (modal.classList.contains('active')) {
+        modal.classList.remove('active')
+        body.classList.remove('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `1200px`
+            item.style.padding = ` 0 20px`
+          })
+        }
+      } else {
+        const connectModal = document.querySelector('.connect')
+        connectModal.classList.remove('active')
+        modal.classList.add('active')
+        body.classList.add('lock')
+        if (window.innerWidth > 992) {
+          content.forEach((item) => {
+            item.style.maxWidth = `${1200 + scrollWidth}px`
+            item.style.padding = ` 0 ${scrollWidth + 20}px 0 20px`
+          })
+        }
+      }
+    }
+
+    openBtn.forEach((item) => {
+      item.addEventListener('click', toggleModal)
+    })
+    closeBtn.addEventListener('click', toggleModal)
   }
 }
