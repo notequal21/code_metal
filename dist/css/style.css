@@ -2342,7 +2342,13 @@ input {
 }
 
 .video-item__cover {
+  position: relative;
   width: 100%;
+}
+
+.video-item__cover-item {
+  position: relative;
+  z-index: 1;
 }
 
 .video-item__cover img {
@@ -2357,6 +2363,40 @@ input {
   height: 100%;
 }
 
+.video-item__cover iframe {
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.video-item__video {
+  position: absolute;
+  z-index: 0;
+  top: 17px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 17px);
+  border: 1px solid #313131;
+  transition: all 0.4s ease;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.video-item__video.show {
+  visibility: visible;
+  z-index: 1;
+  opacity: 1;
+  pointer-events: unset;
+}
+
+.video-item__video::before {
+  content: url(../img/video/elem01.svg);
+  position: absolute;
+  top: -17px;
+  left: -1px;
+}
+
 .video-item__btn {
   cursor: pointer;
   position: absolute;
@@ -2365,6 +2405,12 @@ input {
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 0.3s ease;
+}
+
+.video-item__btn.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .video-item__btn.disabled {
@@ -4815,6 +4861,17 @@ body.lock {
   .partners-slider .swiper-slide img {
     width: 120px;
     height: 60px;
+  }
+
+  .video-item__video {
+    height: 100%;
+    top: 0;
+  }
+
+  .video-item__video::before {
+    content: url(../img/video/elem01-mob.svg);
+    top: -11px;
+    transform: translate(-0.6px, 0);
   }
 
   .choose-body__item .wallet__id {

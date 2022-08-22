@@ -1298,3 +1298,20 @@ export const chooseModal = () => {
     closeBtn.addEventListener('click', toggleModal)
   }
 }
+
+export const toggleVideo = () => {
+  if (document.querySelector('.video-item__btn')) {
+    const btn = document.querySelector('.video-item__btn')
+    const videoItem = document.querySelector('.video-item__video')
+    const videoIframe = document.querySelector('.video-item__video-item')
+
+    videoIframe.remove()
+
+    btn.addEventListener('click', (e) => {
+      e.preventDefault()
+      videoItem.classList.add('show')
+      videoItem.appendChild(videoIframe)
+      btn.classList.add('hidden')
+    })
+  }
+}
