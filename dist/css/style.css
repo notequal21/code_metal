@@ -724,6 +724,83 @@ input {
   background-size: cover;
 }
 
+.footer_simple {
+  background-image: url(../img/footer/bg2.png);
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin: 120px 0 0;
+  padding: 0 0 60px;
+}
+
+.footer_simple .footer-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.footer_simple .footer-body__up {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #181818;
+  border: 1px solid #313131;
+  transition: all 0.3s ease;
+}
+
+.footer_simple .footer-body__up:hover {
+  background: #313131;
+}
+
+.footer_simple .footer-body__links {
+  display: flex;
+  margin: 60px 0 0;
+}
+
+.footer_simple .footer-body__links-item {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #101010;
+  border: 1px solid #FFFFFF;
+  transition: all 0.3s ease;
+}
+
+.footer_simple .footer-body__links-item:not(:first-child) {
+  margin: 0 0 0 20px;
+}
+
+.footer_simple .footer-body__links-item svg {
+  color: #FFFFFF;
+}
+
+.footer_simple .footer-body__links-item:hover {
+  background: #FFFFFF;
+  border: 1px solid #101010;
+}
+
+.footer_simple .footer-body__links-item:hover svg {
+  color: #101010;
+}
+
+.footer_simple .footer-body__links-item.disabled {
+  background: #181818;
+  border: 1px solid #181818;
+}
+
+.footer_simple .footer-body__links-item.disabled svg {
+  color: #969696;
+}
+
 .footer-body {
   display: flex;
   justify-content: space-between;
@@ -3076,6 +3153,63 @@ input {
           user-select: none;
 }
 
+.mint-content__bottom {
+  margin: 20px 0 0;
+  display: flex;
+}
+
+.mint-content__bottom .mint-pass {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  margin: 0 12px 0 0;
+  padding: 0 20px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mint-content__bottom .mint-pass__item {
+  font-family: "Halvar Breitschrift";
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.mint-content__bottom .mint-pass__item.active {
+  color: #FFFFFF;
+}
+
+.mint-content__bottom .mint-pass__switcher {
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  margin: 0 15px;
+  position: relative;
+}
+
+.mint-content__bottom .mint-pass__switcher span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  background: #74182A;
+  transition: all 0.3s ease;
+}
+
+.mint-content__bottom .mint-pass__switcher.active span {
+  transform: translate(calc(100% + 8px));
+}
+
+.mint-content__bottom .mint-content__item_btn {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 238px;
+  margin: 0 !important;
+}
+
 .mint-content__title {
   font-size: 40px;
   line-height: 130%;
@@ -4281,6 +4415,27 @@ body.lock {
     background-image: none;
   }
 
+  .footer_simple {
+    background: none;
+    margin: 50px 0 0;
+    padding: 50px 0 50px;
+  }
+
+  .footer_simple .footer-body__up {
+    display: none;
+    border: 1px solid #313131;
+  }
+
+  .footer_simple .footer-body__logo {
+    order: unset;
+    border-bottom: unset;
+    padding: unset;
+  }
+
+  .footer_simple .footer-body__links {
+    margin: 30px 0 0;
+  }
+
   .footer-body {
     flex-direction: column;
     align-items: flex-start;
@@ -4872,6 +5027,27 @@ body.lock {
     content: url(../img/video/elem01-mob.svg);
     top: -11px;
     transform: translate(-0.6px, 0);
+  }
+
+  .mint-content__bottom {
+    margin: 10px 0 0;
+    flex-direction: column;
+  }
+
+  .mint-content__bottom .mint-pass {
+    height: 86px;
+    margin: 0;
+  }
+
+  .mint-content__bottom .mint-pass__item {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 165%;
+  }
+
+  .mint-content__bottom .mint-content__item_btn {
+    max-width: 100%;
+    margin: 20px 0 0 !important;
   }
 
   .choose-body__item .wallet__id {

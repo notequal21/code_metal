@@ -10,6 +10,106 @@
     background-image: none;
   }
 
+  &_simple {
+    background-image: url(../img/footer/bg2.png);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 120px 0 0;
+    padding: 0 0 60px;
+
+    @media (max-width:992px) {
+      background: none;
+      margin: 50px 0 0;
+      padding: 50px 0 50px;
+    }
+
+    .footer-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      &__up {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        cursor: pointer;
+        width: 54px;
+        height: 54px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #181818;
+        border: 1px solid #313131;
+        transition: all .3s ease;
+
+        @media (max-width:992px) {
+          display: none;
+          border: 1px solid #313131;
+        }
+
+        &:hover {
+          background: #313131;
+        }
+      }
+
+      &__logo {
+        @media (max-width:992px) {
+          order: unset;
+          border-bottom: unset;
+          padding: unset;
+        }
+      }
+
+      &__links {
+        display: flex;
+        margin: 60px 0 0;
+
+        @media (max-width:992px) {
+          margin: 30px 0 0;
+        }
+
+        &-item {
+          width: 56px;
+          height: 56px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: #101010;
+          border: 1px solid #FFFFFF;
+          transition: all .3s ease;
+
+          &:not(:first-child) {
+            margin: 0 0 0 20px;
+          }
+
+          svg {
+            color: #FFFFFF;
+          }
+
+          &:hover {
+            background: #FFFFFF;
+            border: 1px solid #101010;
+
+            svg {
+              color: #101010;
+            }
+          }
+
+          &.disabled {
+            background: #181818;
+            border: 1px solid #181818;
+
+            svg {
+              color: #969696;
+            }
+          }
+        }
+      }
+    }
+  }
+
   &-body {
     display: flex;
     justify-content: space-between;

@@ -1315,3 +1315,23 @@ export const toggleVideo = () => {
     })
   }
 }
+
+export const mintSwitcher = () => {
+  if (document.querySelector('.mint-pass__switcher')) {
+    const switcher = document.querySelector('.mint-pass__switcher')
+    const switcherIcx = document.querySelector('.mint-pass__item_icx')
+    const switcherPass = document.querySelector('.mint-pass__item_pass')
+
+    switcher.addEventListener('click', () => {
+      if (switcher.classList.contains('active')) {
+        switcher.classList.remove('active')
+        switcherIcx.classList.add('active')
+        switcherPass.classList.remove('active')
+      } else {
+        switcher.classList.add('active')
+        switcherIcx.classList.remove('active')
+        switcherPass.classList.add('active')
+      }
+    })
+  }
+}
